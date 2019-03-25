@@ -49,8 +49,8 @@ public class Calculator
 
     private static void doOperation()
     {
-        boolean noOperation;
-        do
+        boolean noOperation = true;
+        while(noOperation)
         {
             System.out.print("Wybierz działanie: \n[+] Dodawanie\n[-] Odejmowanie\n[*] Mnożenie \n[/] Dzielenie\n");
 
@@ -73,6 +73,6 @@ public class Calculator
                     System.out.println("Niepoprawne działanie. Spróbuj jeszcze raz");
                     noOperation = true;
             }
-        } while (noOperation);
+        }
     }
 }
