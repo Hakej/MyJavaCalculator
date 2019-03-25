@@ -49,13 +49,12 @@ public class Calculator
 
     private static void doOperation()
     {
-        boolean noOperation = true;
-        boolean defaultFlag;
-        while (noOperation)
+        boolean noOperation;
+        do
         {
             System.out.print("Wybierz działanie: \n[+] Dodawanie\n[-] Odejmowanie\n[*] Mnożenie \n[/] Dzielenie\n");
 
-            defaultFlag = false;
+            noOperation = false;
             switch(sc.nextLine())
             {
                 case "+":
@@ -72,12 +71,8 @@ public class Calculator
                     break;
                 default:
                     System.out.println("Niepoprawne działanie. Spróbuj jeszcze raz");
-                    defaultFlag = true;
+                    noOperation = true;
             }
-            if(defaultFlag)
-                defaultFlag = false;
-            else
-                noOperation = false;
-        }
+        } while (noOperation);
     }
 }
