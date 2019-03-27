@@ -2,11 +2,11 @@ import java.util.*;
 
 public class Calculator
 {
-    static Scanner sc = new Scanner(System.in);
+    Scanner sc = new Scanner(System.in);
 
-    static int firstInputValue, secondInputValue;
+    int firstInputValue, secondInputValue;
 
-    private static int getInputValue()
+    private int getInputValue()
     {
         while(true)
         {
@@ -23,26 +23,26 @@ public class Calculator
         }
     }
 
-    public static void setInputValues()
+    public void setInputValues()
     {
         firstInputValue = getInputValue();
         secondInputValue = getInputValue();
     }
 
     // All basic operations
-    private static int add(final int a, final int b)
+    private int add(final int a, final int b)
     {
         return a + b;
     }
-    private static int subtract(final int a, final int b)
+    private int subtract(final int a, final int b)
     {
         return a - b;
     }
-    private static int multiply(final int a, final int b)
+    private int multiply(final int a, final int b)
     {
         return a * b;
     }
-    private static int divide(final int a, final int b)
+    private int divide(final int a, final int b)
     {
         try {
             if (b == 0) {
@@ -55,7 +55,7 @@ public class Calculator
         return a / b;
     }
 
-    public static void doOperation()
+    public void doOperation()
     {
         boolean noOperation = true;
         while(noOperation)
