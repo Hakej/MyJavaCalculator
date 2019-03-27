@@ -4,40 +4,16 @@ public class Calculator
 {
     static Scanner sc = new Scanner(System.in);
 
-    static int var1, var2;
+    static int firstInputValue, secondInputValue;
 
-    public static void main(String[] args)
+    private static int getInputValue()
     {
-        getNumbers();
-        doOperation();
-    }
-
-    private static void getNumbers()
-    {
-        boolean isNumberCollected = false;
-
-        while(!isNumberCollected)
+        while(true)
         {
-            System.out.print("Wpisz pierwszą liczbę: ");
+            System.out.print("Podaj wartość: ");
             if(sc.hasNextInt())
             {
-                var1 =  Integer.parseInt(sc.nextLine());
-                isNumberCollected = true;
-            }
-            else
-            {
-                System.out.println("Niepoprawna wartość!");
-                sc.nextLine();
-            }
-        }
-        isNumberCollected = false;
-        while(!isNumberCollected)
-        {
-            System.out.print("Wpisz drugą liczbę: ");
-            if(sc.hasNextInt())
-            {
-                var2 =  Integer.parseInt(sc.nextLine());
-                isNumberCollected = true;
+                return Integer.parseInt(sc.nextLine());
             }
             else
             {
@@ -47,7 +23,39 @@ public class Calculator
         }
     }
 
-    private static void doOperation()
+    public static void setInputValues()
+    {
+        firstInputValue = getInputValue();
+        secondInputValue = getInputValue();
+    }
+
+    // All basic operations
+    private static int add(final int a, final int b)
+    {
+        return a + b;
+    }
+    private static int subtract(final int a, final int b)
+    {
+        return a - b;
+    }
+    private static int multiply(final int a, final int b)
+    {
+        return a * b;
+    }
+    private static int divide(final int a, final int b)
+    {
+        try {
+            if (b == 0) {
+                throw new ArithmeticException("Division by zero!");
+            }
+        }catch(ArithmeticException e)
+        {
+            System.out.println("Nie można dzielić przez zero!");
+        }
+        return a / b;
+    }
+
+    public static void doOperation()
     {
         boolean noOperation = true;
         while(noOperation)
@@ -58,16 +66,16 @@ public class Calculator
             switch(sc.nextLine())
             {
                 case "+":
-                    System.out.println(var1 + " + " + var2 + " = " + (var1 + var2));
+                    System.out.println(firstInputValue + " + " + secondInputValue + " = " + add(firstInputValue, secondInputValue));
                     break;
                 case "-":
-                    System.out.println(var1 + " - " + var2 + " = " + (var1 - var2));
+                    System.out.println(firstInputValue + " - " + secondInputValue + " = " + subtract(firstInputValue, secondInputValue));
                     break;
                 case "*":
-                    System.out.println(var1 + " * " + var2 + " = " + (var1 * var2));
+                    System.out.println(firstInputValue + " * " + secondInputValue + " = " + multiply(firstInputValue, secondInputValue));
                     break;
                 case "/":
-                    System.out.println(var1 + " / " + var2 + " = " + (var1 / var2));
+                    System.out.println(firstInputValue + " / " + secondInputValue + " = " + divide(firstInputValue, secondInputValue));
                     break;
                 default:
                     System.out.println("Niepoprawne działanie. Spróbuj jeszcze raz");
