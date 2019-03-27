@@ -44,13 +44,8 @@ public class Calculator
     }
     private int divide(final int a, final int b)
     {
-        try {
-            if (b == 0) {
-                throw new ArithmeticException("Division by zero!");
-            }
-        }catch(ArithmeticException e)
-        {
-            System.out.println("Nie można dzielić przez zero!");
+        if (b == 0) {
+            throw new ArithmeticException("Division by zero!");
         }
         return a / b;
     }
